@@ -1,17 +1,18 @@
+<html>
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css"
           href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" charset="utf8"
-            src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-    <style>
-        tfoot {
-            display: table-header-group;
-        }
-    </style>
+            src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+            src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
 
+    <title> Heigo Kure</title>
 </head>
+
+</html>
+
 <body>
 <table id="table" border="2px">
     <thead>
@@ -62,21 +63,9 @@
 
 </table>
 <script>
-    $(document).ready(function () {
-        $('tfoot th').each(function () {
-            var title = $('thead th').eq($(this).index()).text();
-            $(this).html('<input type="text" placeholder="Otsi ' + title + '" />');
-        });
-        var table = $('#table').DataTable();
-        table.columns().every(function () {
-            var that = this;
-            $('input', this.footer()).on('keyup change', function () {
-                if (that.search() !== this.value) {
-                    that.search(this.value).draw();
-                }//if lõpp
-            });//on lõpp
-        });//every lõpp
-    });//ready lõpp
+    $(function () {
+        $("#table").dataTable();
+    });
 </script>
 </body>
 </html>
